@@ -222,8 +222,10 @@
 								newPage.className = "page"
 								var newPageContent = document.createElement("div");
 								newPageContent.className = "pagecontent";
+								newPage.appendChild(newPageContent);
 								var newPageIframe = document.createElement("iframe");
 								newPageIframe.src = pages[i];
+								newPageContent.appendChild(newPageIframe);
 								book.turn("addPage", newPage);
 								console.log("added page " + pages[i]);
 							}
