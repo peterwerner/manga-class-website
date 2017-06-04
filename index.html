@@ -203,29 +203,6 @@
 
 		<script type="text/javascript">
 			
-			jQuery.fn.fitToParent = function () {
-			    this.each(function () {
-				var $iframe = jQuery(this);
-				var width = $iframe.width();
-				var height = $iframe.height();
-				var parentWidth = $iframe.parent().width();
-				var parentHeight = $iframe.parent().height();
-
-				var aspect = width / height;
-				var parentAspect = parentWidth / parentHeight;
-
-				if (aspect > parentAspect) {
-				    newWidth = parentWidth;
-				    newHeight = newWidth / aspect;
-				} else {
-				    newHeight = parentHeight;
-				    newWidth = newHeight * aspect;
-				}
-				$iframe.width(newWidth);
-				$iframe.height(newHeight);
-			    });
-			};
-			
 			/*
 			 * Turn.js responsive book
 			 */
@@ -354,9 +331,7 @@
 					$( resize_width ).text( $( line ).text() );
 				
 				});
-				
-				$('.frame').fitToParent();
-				
+								
 			});
 
 			$(window).resize();
