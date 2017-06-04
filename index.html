@@ -168,6 +168,7 @@
 						</div>
 					</div></div>
 
+					<!--
 					<div class="page"><div class="pagecontent">
 						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Manga_in_Jp.svg/1200px-Manga_in_Jp.svg.png" alt="" />
 					</div></div>
@@ -182,6 +183,7 @@
 					<div class="page"><div class="pagecontent">
 						<img src="https://s-media-cache-ak0.pinimg.com/originals/3d/9a/af/3d9aaff2610b8be756c74cd5e082c26e.jpg" alt="" />
 					</div></div>
+					-->
 
 				</div>
 			</div>
@@ -211,30 +213,18 @@
 							var book = $(me.el);
 							book.turn("direction", "rtl"); // read right to left
 
-							var newPage;
-							newPage = document.createElement("div");
-							newPage.className = "page"
-							newPage.innerHTML = "this is a test";
-							book.turn("addPage", newPage);
-
-							newPage = document.createElement("div");
-							newPage.className = "page"
-							newPage.innerHTML = "this is also a test";
-							book.turn("addPage", newPage);
-
-							var url = "https://peterwerner.github.io/manga-class-website/lib/turn.js";
-							var request;
-							if(window.XMLHttpRequest)
-							    	request = new XMLHttpRequest();
-							else
-							    	request = new ActiveXObject("Microsoft.XMLHTTP");
-							request.open('GET', url, false);
-							request.send(); // there will be a 'pause' here until the response to come.
-							// the object request will be actually modified
-							if (request.status === 404) {
-							    	alert("The page you are trying to reach is not available.");
-							} else {
-								alert("got it")
+							var pages = [
+								"https://peterwerner.github.io/manga-class-website/lib/turn.js"
+							];
+							
+							for (var i = 0, len = pages.length; i < len; i++) {
+								var newPage = document.createElement("div");
+								newPage.className = "page"
+								var newPageContent = document.createElement("div");
+								newPageContent.className = "pagecontent";
+								var newPageIframe = document.createElement("iframe");
+								newPageIframe.src = pages[i];
+								book.turn("addPage", newPage);
 							}
 
 							// intro
