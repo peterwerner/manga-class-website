@@ -1,10 +1,10 @@
 var pageUrls = [
 
-  "history_title-01.jpg",
+  "history_title.svg",
   
-  "context_title-01.jpg",
+  "context_title.svg",
   "context01.svg",
   
-  "comparisons_title-01.jpg",
+  "comparisons_title.svg",
   
 ];
