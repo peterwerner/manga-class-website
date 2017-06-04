@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="http://www.turnjs.com/lib/turn.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:700|Work+Sans" rel="stylesheet">
+	<!--
+		<link rel="stylesheet" type="text/css" href="http://www.turnjs.com/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.turnjs.com/css/jquery.ui.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.turnjs.com/samples/basic/css/basic.css" />
+		<link rel="stylesheet" type="text/css" href="http://www.turnjs.com/samples/html5/css/html5.css?89324" />
+	-->
+
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+
+		body {
+			background-color: #333;
+		}
+
+		body.hide-overflow {
+			overflow: hidden;
+		}
+
+		/* helpers */
+
+		.t {
+			display: table;
+			width: 100%;
+			height: 100%;
+		}
+
+		.tc {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+
+		.rel {
+			position: relative;
+		}
+
+		/* book */
+
+		.book {
+			margin: 0 auto;
+			width: 90%;
+			height: 90%;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.book .page {
+			height: 100%;
+			background-color: white;
+			/* box-shadow: inset 0 0 24px rgba(0,0,0,.1) !important; */
+		}
+
+		/* Custom */
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+		}
+		
+		@-webkit-keyframes fadeIn { from { opacity:0; filter: blur(10); } to { opacity:1; filter: blur(0); } }
+		@-moz-keyframes fadeIn { from { opacity:0; filter: blur(10); } to { opacity:1; filter: blur(0); } }
+		@keyframes fadeIn { from { opacity:0; filter: blur(10); } to { opacity:1; filter: blur(0); } }
+
+		.fade-in {
+			opacity:0;  /* make things invisible upon start */
+			-webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+			-moz-animation:fadeIn ease-in 1;
+			animation:fadeIn ease-in 1;
+
+			-webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+			-moz-animation-fill-mode:forwards;
+			animation-fill-mode:forwards;
+
+			-webkit-animation-duration: 2s;
+			-moz-animation-duration: 2s;
+			animation-duration: 2s;
+		}
+
+		.extratext {
+			height: 100%;
+			width: 50%;
+			position: absolute;
+			z-index: -100;
+			color: white;
+			display: table;
+		}
+		.extratext-inner {
+			display: table-cell;
+			vertical-align: middle;
+			font-size: 20px;
+			padding: 32px;
+			opacity: 0.7;
+		}
+		.extratext.left {
+			left: 0;
+		}
+		.extratext.right {
+			right: 0;
+		}
+
+		.pagecontent {
+			width: 100%;
+			height: 100%;
+			box-shadow: inset 0px 0px 32px rgba(0,0,0,0.15);
+		}
+
+		.pagecontent img {
+			max-height: calc(100% - 80px);
+			max-width: calc(100% - 80px);
+			margin: 40px;
+		}
+
+		.title-pagecontent {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			background-image: url("http://tecfa.unige.ch/guides/svg/ex/html5/svg-import/huge-red-circle.svg");
+			background-size: 120%;
+		    background-repeat: no-repeat;
+		    background-position: 50%;
+		}
+		.title-spacer {
+			flex-basis: 0;
+			flex-grow: 1;
+			width: 100%;
+		}
+		.title-text {
+			text-transform: uppercase;
+			letter-spacing: 1.4em;
+			margin-right: -1.4em;
+			padding-top: .36em;
+			padding-bottom: .36em;
+		}
+		.subtitle-text-container {
+			padding-top: .8em;
+			padding-left: 4em;
+			padding-right: 4em;
+		}
+
+	</style>
+		
+	</head>
+
+	<body>
+		<div class="t fade-in">
+			<div class="tc rel">
+				<div class="book" id="book">
+
+					<div class="page"><div class="pagecontent">
+						<div class="title-pagecontent">
+							<div class="title-spacer"></div>
+							<div class="resize_width title-text">Boys</div>
+							<div class="resize_width title-text">Love</div>
+							<div class="subtitle-text-container">
+								<div class="resize_width title-text">Manga</div>
+							</div>
+							<div class="title-spacer"></div>
+						</div>
+					</div></div>
+
+					<div class="page"><div class="pagecontent">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Manga_in_Jp.svg/1200px-Manga_in_Jp.svg.png" alt="" />
+					</div></div>
+
+					<div class="page"><div class="pagecontent"></div></div>
+					<div class="page"><div class="pagecontent"></div></div>
+
+					<div class="page"><div class="pagecontent">
+						<img src="https://s-media-cache-ak0.pinimg.com/originals/3d/9a/af/3d9aaff2610b8be756c74cd5e082c26e.jpg" alt="" />
+					</div></div>
+
+					<div class="page"><div class="pagecontent">
+						<img src="https://s-media-cache-ak0.pinimg.com/originals/3d/9a/af/3d9aaff2610b8be756c74cd5e082c26e.jpg" alt="" />
+					</div></div>
+
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			/*
+			 * Turn.js responsive book
+			 */
+
+			/*globals window, document, $*/
+
+			(function () {
+				'use strict';
+
+				var module = {
+					ratio: 1.38,
+					init: function (id) {
+						var me = this;
+
+						// if older browser then don't run javascript
+						if (document.addEventListener) {
+							this.el = document.getElementById(id);
+							this.resize();
+							this.plugins();
+
+							var book = $(me.el);
+							book.turn("direction", "rtl"); // read right to left
+
+							var newPage;
+							newPage = document.createElement("div");
+							newPage.className = "page"
+							newPage.innerHTML = "this is a test";
+							book.turn("addPage", newPage);
+
+							newPage = document.createElement("div");
+							newPage.className = "page"
+							newPage.innerHTML = "this is also a test";
+							book.turn("addPage", newPage);
+
+							// intro
+							var textStart = document.createElement("div");
+							textStart.className = "extratext right";
+							var textStartInner = document.createElement("div");
+							textStartInner.className = "extratext-inner";
+							textStartInner.innerHTML = "Turn the pages with your mouse";
+							textStart.appendChild(textStartInner)
+							me.el.appendChild(textStart);
+
+							// outro
+							var textEnd = document.createElement("div");
+							textEnd.className = "extratext left";
+							var textEndInner = document.createElement("div");
+							textEndInner.className = "extratext-inner";
+							textEndInner.innerHTML = "Created by Peter, Bryn, & Tianli";
+							textEnd.appendChild(textEndInner)
+							me.el.appendChild(textEnd);
+
+							// on window resize, update the plugin size
+							window.addEventListener('resize', function (e) {
+								var size = me.resize();
+								book.turn('size', size.width, size.height);
+							});
+						}
+					},
+					resize: function () {
+						// reset the width and height to the css defaults
+						this.el.style.width = '';
+						this.el.style.height = '';
+
+						var width = this.el.clientWidth,
+							height = Math.round(width / this.ratio),
+							padded = Math.round(document.body.clientHeight * 0.9);
+
+						// if the height is too big for the window, constrain it
+						if (height > padded) {
+							height = padded;
+							width = Math.round(height * this.ratio);
+						}
+
+						// set the width and height matching the aspect ratio
+						this.el.style.width = width + 'px';
+						this.el.style.height = height + 'px';
+
+						return {
+							width: width,
+							height: height
+						};
+					},
+					plugins: function () {
+						// run the plugin
+						$(this.el).turn({
+							gradients: true,
+							acceleration: true
+						});
+						// hide the body overflow
+						document.body.className = 'hide-overflow';
+					}
+				};
+
+				module.init('book');
+			}());
+
+			$(window).resize(function() {
+
+				$( '.resize_width' ).css( 'font-size', 0 ).each(function ( i, resize_width ) {
+
+					console.log(i);
+				
+					var width = $( resize_width ).width(),
+						line = $( resize_width ).wrapInner( '<span style="white-space:nowrap">' ).children()[ 0 ];
+				
+					function changeFontSize( n ) {
+						$( resize_width ).css( 'font-size', function ( i, val ) {
+							return parseInt( val, 10 ) + n;
+						});
+					}
+				
+					while ( $( line ).width() < width ) {
+						changeFontSize( 1 );
+					}
+				
+					changeFontSize( -1 );
+				
+					$( resize_width ).text( $( line ).text() );
+				
+				});
+			});
+
+			$(window).resize();
+			$(window).resize();
+
+		</script>
+	</body>
+</html>
