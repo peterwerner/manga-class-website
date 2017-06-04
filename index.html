@@ -225,6 +225,7 @@
 								newPage.appendChild(newPageContent);
 								var newPageIframe = document.createElement("iframe");
 								newPageIframe.src = pages[i];
+								newPageIframe.seamless = "seamless";
 								newPageContent.appendChild(newPageIframe);
 								book.turn("addPage", newPage);
 								console.log("added page " + pages[i]);
