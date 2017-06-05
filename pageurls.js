@@ -17,4 +17,6 @@ var pageUrls = [
   "comparisons03-01.svg",
   "comparisons04.svg",
   
+  "blank.svg",
+  
 ];
