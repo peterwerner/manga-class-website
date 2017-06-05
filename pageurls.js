@@ -4,6 +4,8 @@ var pageUrls = [
   "history01.svg",
   "history02.svg",
   "history03.svg",
+  "history04a-01.svg",
+  "history04b-01.svg"
   
   "context_title.svg",
   "context01.svg",
