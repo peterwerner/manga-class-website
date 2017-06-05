@@ -12,5 +12,9 @@ var pageUrls = [
   "context02.svg",
   
   "comparisons_title.svg",
+  "comparisons01-01.svg",
+  "comparisons02-01.svg",
+  "comparisons03-01.svg",
+  "comparisons04.svg",
   
 ];
